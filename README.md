@@ -9,6 +9,8 @@
 
 ### Description
 
+Global Map of Metal bands.
+
 [Demo]()
 
 ## Features
