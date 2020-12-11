@@ -3,8 +3,6 @@
 ## Content Page
 
 - [Description](#description)
-- [Objectives](#objectives)
-- [Gameplay](#gameplay)
 - [Features](#features)
 - [Tech stack](#techstacks)
 - [References](#references)
