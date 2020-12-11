@@ -9,7 +9,7 @@
 
 ### Description
 
-Global Map of Metal bands.
+Global Map of Metal bands, and lets you search for them.
 
 [Demo]()
 
