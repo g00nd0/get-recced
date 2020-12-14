@@ -6,7 +6,10 @@ import BandSearch from "./components/BandSearch";
 function App() {
   return (
     <div className="App">
-      {/* <MapDisplay></MapDisplay> */}
+      <MapDisplay></MapDisplay>
+      {/* <MapOverlay></MapOverlay> */}
+      {/* <Sidebar></Sidebar> */}
+      {/* <BandInfo></BandInfo> */}
       <BandSearch></BandSearch>
     </div>
   );
