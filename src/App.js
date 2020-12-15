@@ -2,15 +2,18 @@ import logo from "./logo.svg";
 import "./App.css";
 import MapDisplay from "./components/MapDisplay";
 import BandSearch from "./components/BandSearch";
+import BandSearchPage from "./components/BandSearchPage";
 
 function App() {
   return (
     <div className="App">
-      <MapDisplay></MapDisplay>
+      <h1>Search Here</h1>
+      {/* <MapDisplay></MapDisplay> */}
       {/* <MapOverlay></MapOverlay> */}
       {/* <Sidebar></Sidebar> */}
       {/* <BandInfo></BandInfo> */}
-      <BandSearch></BandSearch>
+      {/* <BandSearch></BandSearch> */}
+      <BandSearchPage></BandSearchPage>
     </div>
   );
 }
