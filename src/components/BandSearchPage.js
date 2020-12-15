@@ -29,18 +29,22 @@ const BandSearchPage = (props) => {
   };
 
   const updateInput = async (input) => {
-    if (input === "") {
-      searchBand();
+    console.log(input);
+    if (input === null) {
+      // searchBand();
+      // setFilteredList();
     } else {
       searchBand(input);
+      // setInput(input);
     }
 
     console.log(filteredList);
   };
 
   useEffect(() => {
-    // searchBand();
-    updateInput();
+    // use one or the other?
+    // searchBand(input);
+    // updateInput();
   }, []);
 
   return (
