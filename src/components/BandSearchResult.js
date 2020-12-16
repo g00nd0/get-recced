@@ -10,7 +10,7 @@ const BandSearchResult = ({ bandList = [], onBandClick }) => {
           <p
             id={band.band_id}
             key={band.band_id}
-            onBandClick={() => onBandClick(band.band_name)}
+            onClick={() => onBandClick(band.band_name)}
           >
             <b>{band.band_name}</b> ({band.band_country}), {band.band_genre}
           </p>

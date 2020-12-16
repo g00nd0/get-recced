@@ -4,19 +4,18 @@ import MapDisplay from "./components/MapDisplay";
 import BandSearchPage from "./components/BandSearchPage";
 // import MapMarker from "./components/MapMarker";
 
-const handleBandClick = (band) => {
-  console.log("band");
-  console.log(band);
-};
-
 const App = () => {
   const [countryCoords, setCountryCoords] = useState();
 
+  const handleBandClick = (band) => {
+    console.log("band");
+    console.log(band);
+  };
   return (
     <div className="App">
       <h3>Search Here</h3>
       <BandSearchPage onBandClick={handleBandClick}></BandSearchPage>
-      <MapDisplay></MapDisplay>
+      {/* <MapDisplay></MapDisplay> */}
       {/* <MapMarker></MapMarker> */}
 
       {/* <MapOverlay></MapOverlay> */}
