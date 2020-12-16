@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
-// import MapMarker from "./MapMarker";
+import countryData from "../data/countryCoords.json";
 const dotenv = require("dotenv").config();
 const api_key = process.env.REACT_APP_MAPS_API_KEY;
 // const google = { Google };
@@ -8,6 +8,16 @@ const mapStyles = {
   width: "100%",
   height: "100%",
 };
+
+const renderCoords = countryData.map((country) => {
+  return (
+    <Marker
+      position={{ lat: country.latitude, lng: country.longitude }}
+      id={country.country}
+      text={country.name}
+    />
+  );
+});
 
 export class MapDisplay extends Component {
   render() {
@@ -24,16 +34,7 @@ export class MapDisplay extends Component {
         // initialCenter={{ lat: 47.444, lng: -122.176 }}
         initialCenter={{ lat: 17.607789, lng: 8.081666 }} // use these coords for center map
       >
-        <Marker
-          position={{ lat: 61.92411, lng: 25.748151 }}
-          text="My Marker"
-          color="blue"
-        />
-        <Marker
-          position={{ lat: 40.463667, lng: -3.74922 }}
-          text="Spain"
-          color="red"
-        />
+        {renderCoords}
       </Map>
     );
   }

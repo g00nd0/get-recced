@@ -3,9 +3,9 @@ import BandSearchBar from "./BandSearchBar";
 import BandSearchResult from "./BandSearchResult";
 import BandShowInfo from "./BandShowInfo";
 const axios = require("axios").default;
-const apiEndpoint = "http://localhost:4000/bands/";
+const apiEndpoint = "http://localhost:4000/bands/"; //change this when deployed?
 
-const BandSearchPage = (props) => {
+const BandSearchPage = ({ onBandClick }) => {
   const [input, setInput] = useState("");
   const [filteredList, setFilteredList] = useState(); //only show filtered options
 
@@ -44,12 +44,11 @@ const BandSearchPage = (props) => {
   }, []);
 
   return (
-    <>
-      <h1>Band List</h1>
+    <div>
       <BandSearchBar input={input} onChange={updateInput} />
-      <BandSearchResult bandList={filteredList} />
+      <BandSearchResult bandList={filteredList} onBandClick={onBandClick} />
       <BandShowInfo />
-    </>
+    </div>
   );
 };
 

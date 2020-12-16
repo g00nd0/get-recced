@@ -1,29 +1,31 @@
-import logo from "./logo.svg";
+import React, { useState } from "react";
 import "./App.css";
 import MapDisplay from "./components/MapDisplay";
-import BandSearch from "./components/BandSearch";
 import BandSearchPage from "./components/BandSearchPage";
-import MapMarker from "./components/MapMarker";
+// import MapMarker from "./components/MapMarker";
 
 const handleBandClick = (band) => {
   console.log("band");
-  console.log(band.id);
+  console.log(band);
 };
 
-function App() {
+const App = () => {
+  const [countryCoords, setCountryCoords] = useState();
+
   return (
     <div className="App">
-      <h1>Search Here</h1>
-      {/* <MapDisplay></MapDisplay> */}
+      <h3>Search Here</h3>
+      <BandSearchPage onBandClick={handleBandClick}></BandSearchPage>
+      <MapDisplay></MapDisplay>
       {/* <MapMarker></MapMarker> */}
 
       {/* <MapOverlay></MapOverlay> */}
       {/* <Sidebar></Sidebar> */}
       {/* <BandInfo></BandInfo> */}
       {/* <BandSearch></BandSearch> */}
-      <BandSearchPage onBandClick={handleBandClick}></BandSearchPage>
+      {/* <BandSearchPage onBandClick={handleBandClick}></BandSearchPage> */}
     </div>
   );
-}
+};
 
 export default App;
