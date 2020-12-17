@@ -1,46 +1,63 @@
+import React, { useState, useEffect } from "react";
+import BandRenderAlbums from "./BandRenderAlbums";
 const axios = require("axios").default;
+const apiEndpoint = "https://musicbrainz.org/ws/2/";
 
-const insertQuery = "name=assault&country=singapore";
+const BandShowInfo = (props) => {
+  const [artist, setArtist] = useState([]);
+  const [albumList, setAlbumList] = useState([]);
 
-const url = "http://localhost:3000/bands/?" + insertQuery;
-// const url2 = "http://localhost:3000/bands/3540322780/discography/";
-const url2 = "http://localhost:3000/bands/" + bandId + "/discography/";
+  const getBandDiscogUrl = (artistId) => {
+    const url =
+      apiEndpoint +
+      "release-group?artist=" +
+      artistId +
+      "&type=album|ep&fmt=json";
+    axios
+      .get(url)
+      .then(function (response) {
+        setAlbumList(response.data["release-groups"]);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+  };
 
-const displayDiscog = (bandId) => {
-  const url = "http://localhost:3000/bands/" + bandId + "/discography/";
-  axios
-    .get(url)
-    .then(function (response) {
-      console.log(response.data.data.discography);
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
-    .then(function () {
-      // always executed
-    });
+  const getBandDetails = (artistId) => {
+    const url = apiEndpoint + "artist/" + artistId + "/?fmt=json";
+    axios
+      .get(url)
+      .then(function (response) {
+        setArtist(response.data);
+        getBandDiscogUrl(artistId);
+        console.log("this runs once");
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+  };
+
+  useEffect(() => {
+    getBandDetails(props.selectedArtist.id);
+  }, []);
+
+  return (
+    <div>
+      <h3>{artist.name + " (" + artist.country + ")"}</h3>
+      <h4>Genre: {artist.disambiguation}</h4>
+      {}
+      <BandRenderAlbums albumList={albumList} />
+      {/* {console.log(albumUrl)} */}
+    </div>
+  );
 };
 
-const getBand = (bandId) => {
-  const url = "http://localhost:3000/bands/" + bandId;
-  axios
-    .get(url)
-    .then(function (response) {
-      // handle success
-      // console.log(response);
-      console.log(response.data.data.band);
-      displayDiscog(3540322780);
-      // console.log(response.data.data.discography);
-      // console.log(response.data.value.joke);
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
-    .then(function () {
-      // always executed
-    });
-};
-
-getBand(3540322780);
+export default BandShowInfo;

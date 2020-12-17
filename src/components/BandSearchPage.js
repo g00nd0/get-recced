@@ -1,27 +1,22 @@
 import React, { useState, useEffect } from "react";
 import BandSearchBar from "./BandSearchBar";
 import BandSearchResult from "./BandSearchResult";
-import BandShowInfo from "./BandShowInfo";
 const axios = require("axios").default;
-const apiEndpoint = "http://localhost:4000/bands/"; //change this when deployed?
+const apiEndpoint = "https://musicbrainz.org/ws/2/";
+const queryType = "artist";
+const queryParam = "query=";
 
-const BandSearchPage = ({ onBandClick }) => {
-  const [input, setInput] = useState("");
-  const [filteredList, setFilteredList] = useState(); //only show filtered options
+const BandSearchPage = (props) => {
+  const [queryResults, setQueryResults] = useState([]);
 
-  const searchBand = (query) => {
-    let url = apiEndpoint + "?name=";
-
-    if (query === null) {
-      url += "&length=0";
-    } else {
-      url += query + "&length=5";
-    }
-
+  const handleSearchButton = (input) => {
+    const url =
+      apiEndpoint + queryType + "/?fmt=json&limit=10&" + queryParam + input;
     axios
       .get(url)
       .then(function (response) {
-        setFilteredList(response.data.data.bands); // set search results
+        console.log(response.data.artists); // set search results
+        setQueryResults(response.data.artists);
       })
       .catch(function (error) {
         // handle error
@@ -30,24 +25,29 @@ const BandSearchPage = ({ onBandClick }) => {
       .then(function () {
         // always executed
       });
-  };
+    // useEffect(() => {
 
-  const updateInput = (input) => {
-    console.log(input);
-    searchBand(input);
-    // setInput(input);
+    // }, []);
   };
-
-  useEffect(() => {
-    // searchBand();
-    updateInput();
-  }, []);
 
   return (
     <div>
-      <BandSearchBar input={input} onChange={updateInput} />
-      <BandSearchResult bandList={filteredList} onBandClick={onBandClick} />
-      <BandShowInfo />
+      <BandSearchBar
+        onSearch={handleSearchButton}
+        setSelectedArtist={props.setSelectedArtist}
+      />
+      {queryResults.length === 0 || props.SelectedArtist ? (
+        <p>
+          <b>Search for an artist to see results!</b>
+        </p>
+      ) : (
+        <BandSearchResult
+          bandList={queryResults}
+          setBandList={setQueryResults}
+          onBandClick={props.onBandClick}
+          setSelectedArtist={props.setSelectedArtist}
+        />
+      )}
     </div>
   );
 };

@@ -1,18 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 
-const BandSearchResult = ({ bandList = [], onBandClick }) => {
+const BandSearchResult = ({
+  bandList,
+  setBandList,
+  onBandClick,
+  setSelectedArtist,
+}) => {
+  const [searchResults, setSearchResults] = useState(bandList);
+
   return (
     <div>
-      {bandList === null ? (
-        <p> Type in search field</p>
+      {bandList.length === 0 ? (
+        <></>
       ) : (
         bandList.map((band) => (
           <p
-            id={band.band_id}
-            key={band.band_id}
-            onClick={() => onBandClick(band.band_name)}
+            id={band.id}
+            key={band.id}
+            onClick={() => {
+              onBandClick(band);
+              setBandList([]);
+            }}
           >
-            <b>{band.band_name}</b> ({band.band_country}), {band.band_genre}
+            <b>{band.name}</b> ({band.country}), {band.disambiguation}
           </p>
         ))
       )}
