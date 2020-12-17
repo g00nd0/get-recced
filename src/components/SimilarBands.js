@@ -33,7 +33,7 @@ const SimilarBands = ({ artist }) => {
       .then(function () {
         // always executed
       });
-  }, []);
+  });
 
   return (
     <div>

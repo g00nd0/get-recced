@@ -55,7 +55,7 @@ const BandShowInfo = (props) => {
 
   useEffect(() => {
     getBandDetails(props.selectedArtist.id);
-  }, []);
+  });
 
   return (
     <div>

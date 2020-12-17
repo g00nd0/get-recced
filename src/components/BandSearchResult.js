@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const BandSearchResult = ({
   bandList,
@@ -6,8 +6,6 @@ const BandSearchResult = ({
   onBandClick,
   setSelectedArtist,
 }) => {
-  const [searchResults, setSearchResults] = useState(bandList);
-
   return (
     <div>
       {bandList.length === 0 ? (

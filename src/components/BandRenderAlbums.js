@@ -1,4 +1,3 @@
-const axios = require("axios").default;
 const apiEndpoint = "http://coverartarchive.org/";
 
 const BandRenderAlbums = ({ albumList }) => {
@@ -6,7 +5,10 @@ const BandRenderAlbums = ({ albumList }) => {
     <div>
       {albumList.map((album) => (
         <div>
-          <img src={apiEndpoint + "release-group/" + album.id + "/front-250"} />
+          <img
+            alt={album.title}
+            src={apiEndpoint + "release-group/" + album.id + "/front-250"}
+          />
           <p>
             <b>{album.title}</b> ({album["first-release-date"]})
           </p>
