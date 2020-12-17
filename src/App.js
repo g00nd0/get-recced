@@ -21,12 +21,6 @@ const App = () => {
       ) : (
         <BandGetInfo selectedArtist={selectedArtist} />
       )}
-      {/* <img src="http://coverartarchive.org/release-group/e4f11dc7-ed0c-4fb2-bdf7-b1a6240bd167/front-250" /> */}
-      {/* <MapDisplay></MapDisplay> */}
-      {/* <MapMarker></MapMarker> */}
-      {/* <MapOverlay></MapOverlay> */}
-      {/* <Sidebar></Sidebar> */}
-      {/* <BandSearch></BandSearch> */}
     </div>
   );
 };
