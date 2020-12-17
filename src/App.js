@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
-import MapDisplay from "./components/MapDisplay";
 import BandSearchPage from "./components/BandSearchPage";
 import BandGetInfo from "./components/BandGetInfo";
-import ArtistSearch from "./components/ArtistSearch";
-import ArtistDetails from "./components/ArtistDetails";
-import SimilarBands from "./components/SimilarBands";
-// import MapMarker from "./components/MapMarker";
 
 const App = () => {
   const [selectedArtist, setSelectedArtist] = useState("0");
