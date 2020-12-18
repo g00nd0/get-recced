@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import BandSearchBar from "./BandSearchBar";
 import BandSearchResult from "./BandSearchResult";
+
 const axios = require("axios").default;
 const apiEndpoint = "https://musicbrainz.org/ws/2/";
 const queryType = "artist";

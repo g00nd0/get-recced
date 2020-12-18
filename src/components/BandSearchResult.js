@@ -1,13 +1,9 @@
 import React from "react";
+import { Button } from "@material-ui/core";
 
-const BandSearchResult = ({
-  bandList,
-  setBandList,
-  onBandClick,
-  setSelectedArtist,
-}) => {
+const BandSearchResult = ({ bandList, setBandList, onBandClick }) => {
   return (
-    <div>
+    <div border={"1px, solid, black"}>
       {bandList.length === 0 ? (
         <></>
       ) : (

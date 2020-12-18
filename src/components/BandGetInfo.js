@@ -3,6 +3,7 @@ import BandRenderAlbums from "./BandRenderAlbums";
 import SimilarBands from "./SimilarBands";
 import similarBandsButton from "react-bootstrap/Button";
 import discogButton from "react-bootstrap/Button";
+import { Button } from "@material-ui/core";
 const axios = require("axios").default;
 const apiEndpoint = "https://musicbrainz.org/ws/2/";
 
@@ -61,25 +62,27 @@ const BandShowInfo = (props) => {
     <div>
       <h3>{artist.name + " (" + artist.country + ")"}</h3>
       <h4>Genre: {artist.disambiguation}</h4>
-      <discogButton
-        className="subButton"
+      <Button
+        className="discogButton"
         variant="primary"
         onClick={() => handWhichPageClick("discog")}
       >
         Show Discography
-      </discogButton>
-      <similarBandsButton
-        className="subButton"
+      </Button>
+      <Button
+        className="similarButton"
         variant="primary"
         onClick={() => handWhichPageClick("similar")}
       >
         Show Similar Bands
-      </similarBandsButton>
-      {whichPage === "discog" ? (
-        <BandRenderAlbums albumList={albumList} />
-      ) : (
-        <SimilarBands artist={artist.name}></SimilarBands>
-      )}
+      </Button>
+      <div>
+        {whichPage === "discog" ? (
+          <BandRenderAlbums albumList={albumList} />
+        ) : (
+          <SimilarBands artist={artist.name}></SimilarBands>
+        )}
+      </div>
     </div>
   );
 };
