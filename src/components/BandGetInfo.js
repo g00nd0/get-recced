@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import BandRenderAlbums from "./BandRenderAlbums";
 import SimilarBands from "./SimilarBands";
-import similarBandsButton from "react-bootstrap/Button";
-import discogButton from "react-bootstrap/Button";
 import { Button } from "@material-ui/core";
 const axios = require("axios").default;
 const apiEndpoint = "https://musicbrainz.org/ws/2/";
@@ -74,7 +72,7 @@ const BandShowInfo = (props) => {
         variant="primary"
         onClick={() => handWhichPageClick("similar")}
       >
-        Show Similar Bands
+        Show Similar Artists
       </Button>
       <div>
         {whichPage === "discog" ? (

@@ -3,8 +3,8 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import BandSearchPage from "./components/BandSearchPage";
 import BandGetInfo from "./components/BandGetInfo";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Navbar, Nav } from "react-bootstrap";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App = () => {
   const [selectedArtist, setSelectedArtist] = useState("0");
