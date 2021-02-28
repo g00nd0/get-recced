@@ -1,4 +1,4 @@
-# Get-Recced - Music Search & Recommender
+# GetRec-ed - Music Search & Recommender
 
 Look up your favourite music artists and their releases, and get recommendations for similar artists you might want to check out.
 
