@@ -21,7 +21,7 @@ The artist's page will show their entire discography. You can choose to view eit
 
 On the "SHOW SIMILAR ARTISTS" page, recommended bands are shown with a description of the band and links to their Music on YouTube, as well as their Wikipedia page.
 
-[Demo](https://music-recommender.vercel.app/)
+[Demo](https://getrec-ed.vercel.app/)
 
 ## Features
 
