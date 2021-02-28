@@ -65,9 +65,9 @@ const App = () => {
           <Route path="/">
             <h1>WELCOME!</h1>
             <p>
-              The Music Search and Recommender App let's you search for your
-              favourite artists and get detailed information on their work, as
-              well as recommendations for similar sounding artists!{" "}
+              GetRec-ed let's you search for your favourite artists and get
+              detailed information on their work, as well as recommendations for
+              similar sounding artists!{" "}
             </p>
           </Route>
         </Switch>
